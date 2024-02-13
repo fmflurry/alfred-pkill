@@ -1,0 +1,33 @@
+{
+  "name": "alfred-pkill",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Track process to kill",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmflurry/alfred-pkill.git"
+  },
+  "keywords": [
+    "alfred5",
+    "process",
+    "kill",
+    "workflow"
+  ],
+  "author": "Florian MICHEL",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/fmflurry/alfred-pkill/issues"
+  },
+  "homepage": "https://github.com/fmflurry/alfred-pkill#readme",
+  "dependencies": {
+    "alfy": "^2.0.0",
+    "fkill": "^9.0.0",
+    "ps-list": "^8.1.1"
+  }
+}
