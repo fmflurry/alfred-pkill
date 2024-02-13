@@ -13,6 +13,24 @@ const getProcessCollection = async () => {
 
 const sanitizePath = processCmd => processCmd.replace(/\.app\/Contents\/.*$/, '.app');
 const getIconPath = sanitizedPath => sanitizedPath.replace(/ -.*/, '');
+const byShortestApp = (a, b) => {
+    const aIsApp = a.subtitle.endsWith('.app');
+    const bIsApp = b.subtitle.endsWith('.app');
+    
+    // return app first
+    if (aIsApp && !bIsApp) {
+        return -1;
+    }
+
+    if (bIsApp && !aIsApp) {
+        return 1;
+    }
+
+    // if both are app, the shortest come first
+    return aIsApp.length < bIsApp.length
+    ? 1
+    : -1;
+}
 
 
 // filter process so we can chose which one we want to kill
@@ -53,9 +71,7 @@ getProcessCollection().then(processCollection => {
                     }
                 }
             };
-        });
-
-    // TODO : find a smart wway to sort
+        }).sort(byShortestApp);
 
     alfy.output(prettyProcessCollection);
 });
