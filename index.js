@@ -42,7 +42,7 @@ getProcessCollection().then(processCollection => {
             const iconPath = getIconPath(sanitizedPath);
 
             const subtitle = !!p.port
-                ?  `${process.port} - ${subtitle}`
+                ?  `${p.port} - ${subtitle}`
                 : sanitizedPath;
 
             return {
